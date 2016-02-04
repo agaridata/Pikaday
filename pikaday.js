@@ -717,6 +717,9 @@
             if (typeof date === 'string') {
                 date = new Date(Date.parse(date));
             }
+            if (moment && moment.isMoment(date)) {
+	        date = date.toDate();
+	    }
             if (!isDate(date)) {
                 return;
             }
