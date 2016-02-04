@@ -976,7 +976,11 @@
                 before = new Date(year, month, 1).getDay(),
                 data   = [],
                 row    = [];
-            setToStartOfDay(now);
+            if (opts.utcToday) {
+              now = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+            } else {
+             setToStartOfDay(now);
+            }
             if (opts.firstDay > 0) {
                 before -= opts.firstDay;
                 if (before < 0) {
